@@ -21,7 +21,12 @@ The built binary will be located at `target/release/bech32-utils`.
 To use `bech32-utils`, you need to provide the original Bech32 address and the prefix you want to convert it to. The tool also accepts an optional derivation path.
 
 ```sh
-./bech32-utils <address> <new_prefix> [derivation_path]
+./bech32-utils single <address> <new_prefix> [derivation_path]
+```
+
+Or what you can do is use a csv file with records like the following `<ADDRESS>,[..<EXTRA_INFO>]` (e.g. `pasg000000000000000000000000000000000000000,1231241,staker,69,420`)
+```sh
+./bech32-utils convert-csv <INPUT_DIR> <OUTPUT_DIR> <PREFIX>
 ```
 
 ### Parameters:
@@ -51,6 +56,13 @@ Contributions are what make the open-source community such a fantastic place to 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 
 Don't forget to give the project a star! Thanks again!
+
+### Running from source
+
+to run the cli commands from source run 
+```sh
+cargo run -- single <ADDRESS> <PREFIX>
+```
 
 ## License
 
