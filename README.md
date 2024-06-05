@@ -1,9 +1,3 @@
-Deciding which workspace information to collect
-
-Collecting workspace information
-
-Filtering to most relevant information
-
 # Bech32 Address Converter
 
 This project provides a library and a command-line interface (CLI) for converting Bech32 addresses with different prefixes. It's written in Rust and is optimized for maximum performance.
@@ -15,6 +9,19 @@ The project is divided into two main parts:
 1. [`bech32-addr-converter/src`](./bech32-addr-converter/src).
 
 2. [``bech32-addr-converter-cli``](./bech32-addr-converter-cli): This is a CLI tool that uses the [``bech32-addr-converter``](./bech32-addr-converter) library to convert addresses. The source code is located in [`bech32-addr-converter-cli/src`](./bech32-addr-converter-cli/src).
+
+## Install
+
+install the cli using cargo: 
+
+```sh
+cargo install bech32-addr-converter-cli
+```
+
+or add the converter library to your project 
+```sh
+cargo add bech32-addr-converter
+```
 
 ## Usage
 
