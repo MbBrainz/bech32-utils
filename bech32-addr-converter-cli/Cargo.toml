@@ -10,9 +10,7 @@ keywords = ["bech32", "cli", "address-conversion"]
 categories = ["command-line-utilities", "cryptography", "utilities"]
 
 [dependencies]
-bech32 = "0.9.1"
 clap = { version = "4.4.7", features = ["derive"] }
-cosmwasm-std = "1.3.0"
 csv = "1.3.0"
 bech32-addr-converter = { path = "../bech32-addr-converter" }
 

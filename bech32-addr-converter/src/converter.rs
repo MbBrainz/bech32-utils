@@ -28,15 +28,25 @@ impl From<bech32::primitives::hrp::Error> for Bech32Error {
 
 pub fn any_addr_to_prefix_addr(addr: String, prefix: &str) -> Result<String, Bech32Error> {
     let (_hrp, data) = bech32::decode(&addr)?;
-    let neutron_addr = bech32::encode::<Bech32>(bech32::Hrp::parse(prefix)?, &data)?;
-    Ok(neutron_addr)
+    let address = canonical_addr_to_prefix_addr(data, prefix)?;
+    Ok(address)
+}
+
+pub fn canonical_addr_to_prefix_addr(
+    canonical_addr: impl Into<Vec<u8>>,
+    prefix: &str,
+) -> Result<String, Bech32Error> {
+    Ok(bech32::encode::<Bech32>(
+        bech32::Hrp::parse(prefix)?,
+        &canonical_addr.into(),
+    )?)
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
-    const JUNO_BECH32_PREFIX: &str = "juno";
+    // const JUNO_BECH32_PREFIX: &str = "juno";
     const NEUTRON_BECH32_PREFIX: &str = "neutron";
     const OSMOSIS_BECH32_PREFIX: &str = "osmo";
     const TERRA_BECH32_PREFIX: &str = "terra";
