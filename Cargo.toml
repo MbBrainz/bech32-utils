@@ -4,3 +4,6 @@ resolver = "2"
 
 [workspace.metadata.workspaces]
 no_individual_tags = true
+
+[workspace.dependencies]
+bech32-addr-converter = { path = "bech32-addr-converter" }
