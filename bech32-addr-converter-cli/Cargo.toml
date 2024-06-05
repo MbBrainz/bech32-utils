@@ -1,7 +1,7 @@
 [package]
 name = "bech32-addr-converter-cli"
-version = "2.0.0"
 edition = "2021"
+version = "0.0.1"
 description = "A CLI tool for converting Bech32 addresses with different prefixes."
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/mbbrainz/bech32-utils"
