@@ -1,6 +1,6 @@
 [package]
 name = "bech32-addr-converter"
-version = "0.0.1"
+version.workspace = true
 edition = "2021"
 description = "A CLI tool for converting Bech32 addresses with different prefixes."
 license = "MIT OR Apache-2.0"

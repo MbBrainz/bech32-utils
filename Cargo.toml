@@ -1,9 +1,29 @@
 [workspace]
 members = ["bech32-addr-converter", "bech32-addr-converter-cli"]
 resolver = "2"
+version = "1.0.0"
+package.version = "1.0.0"
 
 [workspace.metadata.workspaces]
 no_individual_tags = true
 
 [workspace.dependencies]
 bech32-addr-converter = { path = "bech32-addr-converter" }
+
+[profile.release]
+# Optimize for maximum performance
+opt-level = 3
+
+# Use link time optimization
+lto = true
+
+# Strip symbols for a smaller binary
+strip = true
+
+# More aggressive inlining
+codegen-units = 1
+
+# Disable debug information
+debug = false
+
+panic = "abort"
