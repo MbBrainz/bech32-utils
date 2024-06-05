@@ -1,0 +1,39 @@
+[package]
+name = "bech32-addr-converter-cli"
+version = "0.1.0"
+edition = "2021"
+description = "A CLI tool for converting Bech32 addresses with different prefixes."
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/mbbrainz/bech32-utils"
+readme = "README.md"
+keywords = ["bech32", "cli", "address-conversion"]
+categories = ["command-line-utilities", "cryptography", "utilities"]
+
+[dependencies]
+bech32 = "0.9.1"
+clap = { version = "4.4.7", features = ["derive"] }
+cosmwasm-std = "1.3.0"
+csv = "1.3.0"
+bech32-addr-converter = { path = "../bech32-addr-converter" }
+
+[[bin]]
+name = "bech32-addr-converter"
+path = "src/main.rs"
+
+[profile.release]
+# Optimize for maximum performance
+opt-level = 3
+
+# Use link time optimization
+lto = true
+
+# Strip symbols for a smaller binary
+strip = true
+
+# More aggressive inlining
+codegen-units = 1
+
+# Disable debug information
+debug = false
+
+panic = "abort"

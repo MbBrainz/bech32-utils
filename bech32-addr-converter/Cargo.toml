@@ -1,0 +1,41 @@
+[package]
+name = "bech32-addr-converter"
+version = "0.2.0"
+edition = "2021"
+description = "A CLI tool for converting Bech32 addresses with different prefixes."
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/mbbrainz/bech32-utils"
+readme = "README.md"
+keywords = [
+    "bech32",
+    "address-conversion",
+    "cosmos-sdk",
+    "blockchain",
+    "cryptocurrency",
+    "utilities",
+]
+categories = ["cryptography", "utilities"]
+
+[lib]
+
+[dependencies]
+bech32 = "0.11"
+
+
+[profile.release]
+# Optimize for maximum performance
+opt-level = 3
+
+# Use link time optimization
+lto = true
+
+# Strip symbols for a smaller binary
+strip = true
+
+# More aggressive inlining
+codegen-units = 1
+
+# Disable debug information
+debug = false
+
+panic = "abort"
