@@ -1,2 +1,3 @@
 [workspace]
 members = ["bech32-addr-converter", "bech32-addr-converter-cli"]
+resolver = "2"
