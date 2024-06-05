@@ -1,75 +1,38 @@
-# Bech32 Utils
+Deciding which workspace information to collect
 
-`bech32-utils` is a command-line tool written in Rust that allows you to transform any Bech32 prefixed address into another address with a different prefix. It's designed to be simple, efficient, and easy to use.
+Collecting workspace information
 
-## Installation
+Filtering to most relevant information
 
-To install `bech32-utils`, you need to have Rust and Cargo installed on your machine. If you don't have them installed, please follow the instructions here: [Install Rust](https://www.rust-lang.org/tools/install).
+# Bech32 Address Converter
 
-Once Rust and Cargo are installed, you can install `bech32-utils` by cloning the repository and building the project:
+This project provides a library and a command-line interface (CLI) for converting Bech32 addresses with different prefixes. It's written in Rust and is optimized for maximum performance.
 
-```sh
-git clone https://github.com/mbbrainz/bech32-utils.git
-cd bech32-utils
-cargo build --release
-```
+## Structure
 
-The built binary will be located at `target/release/bech32-utils`.
+The project is divided into two main parts:
+
+1. [`bech32-addr-converter/src`](./bech32-addr-converter/src).
+
+2. [``bech32-addr-converter-cli``](./bech32-addr-converter-cli): This is a CLI tool that uses the [``bech32-addr-converter``](./bech32-addr-converter) library to convert addresses. The source code is located in [`bech32-addr-converter-cli/src`](./bech32-addr-converter-cli/src).
 
 ## Usage
 
-To use `bech32-utils`, you need to provide the original Bech32 address and the prefix you want to convert it to. The tool also accepts an optional derivation path.
+To use the CLI tool, you need to build the project first. After building, you can run the [``bech32-addr-converter``](./bech32-addr-converter) binary with the appropriate arguments. try `bech32-addr-converter-cli -h` for description.
 
-```sh
-./bech32-utils single <address> <new_prefix> [derivation_path]
-```
+## Tests
 
-Or what you can do is use a csv file with records like the following `<ADDRESS>,[..<EXTRA_INFO>]` (e.g. `pasg000000000000000000000000000000000000000,1231241,staker,69,420`)
-```sh
-./bech32-utils convert-csv <INPUT_DIR> <OUTPUT_DIR> <PREFIX>
-```
-
-### Parameters:
-
-- `<address>`: The original Bech32 address you want to convert.
-- `<new_prefix>`: The new prefix for the address.
-- `[derivation_path]`: Optional. The derivation path if applicable.
-
-### Examples:
-
-Convert an address to a new prefix:
-
-```sh
-./bech32-utils bc1qp... zil1
-```
-
-Convert an address to a new prefix with a derivation path:
-
-```sh
-./bech32-utils bc1qp... zil1 m/44'/0'/0'/0/0
-```
-
-## Contributing
-
-Contributions are what make the open-source community such a fantastic place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-
-Don't forget to give the project a star! Thanks again!
-
-### Running from source
-
-to run the cli commands from source run 
-```sh
-cargo run -- single <ADDRESS> <PREFIX>
-```
+Tests are included in the [`tests`](./bech32-addr-converter/src/converter.rs) module in the [`bech32-addr-converter/src/converter.rs`](./bech32-addr-converter/src/converter.rs) file.
 
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+This project is licensed under either of
 
-## Contact
+- MIT license ([LICENSE-MIT](LICENSE) or http://opensource.org/licenses/MIT)
+- Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE) or http://www.apache.org/licenses/LICENSE-2.0)
 
-Maurits Bos - maurits.bos@gmail.com
+at your option.
 
-Project Link: [https://github.com/mbbrainz/bech32-utils](https://github.com/mbbrainz/bech32-utils)
+## Contribution
+
+Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in [``bech32-addr-converter``](./bech32-addr-converter) 
