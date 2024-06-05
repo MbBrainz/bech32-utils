@@ -1,8 +1,6 @@
 [workspace]
 members = ["bech32-addr-converter", "bech32-addr-converter-cli"]
 resolver = "2"
-version = "1.0.0"
-package.version = "1.0.2"
 
 [workspace.metadata.workspaces]
 no_individual_tags = true
