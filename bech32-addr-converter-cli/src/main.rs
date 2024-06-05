@@ -1,6 +1,6 @@
 use bech32_addr_converter::converter;
 use clap::{error::ErrorKind, Parser};
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 
 use clap::{Args, Subcommand};
 
@@ -106,10 +106,10 @@ fn convert_csv(convert_csv: ConvertCsv) {
     wtr.flush().unwrap();
 }
 
-fn add_converted_postfix(input_dir: &PathBuf) -> PathBuf {
-    let mut output_dir = input_dir.clone();
+fn add_converted_postfix(input_dir: &Path) -> PathBuf {
+    let mut output_dir = input_dir.to_path_buf();
     let file_name = output_dir.file_name().unwrap();
-    let file_name = file_name.to_str().unwrap().split(".").next().unwrap();
+    let file_name = file_name.to_str().unwrap().split('.').next().unwrap();
     let file_name = format!("{}_converted.csv", file_name);
     output_dir.set_file_name(file_name);
     output_dir
